@@ -29,15 +29,16 @@ class CompanyItem(scrapy.Item):
 	specificLocation = scrapy.Field()
 	tel = scrapy.Field()
 	email = scrapy.Field()
-	
+	size = scrapy.Field()
+
 	# the following is seemingly supposed to be
 	# within a structure which is an element of
 	# a list that is the direct field of the Item 
-	fundTime = scrapy.Field()
+	# fundTime = scrapy.Field()
 	fundPhase = scrapy.Field()
-	fundAmount = scrapy.Field()
-	funder = scrapy.Field()
+	# fundAmount = scrapy.Field()
+	# funder = scrapy.Field()
 	# the above need to be in a list say fundInfo?
-	# fundInfo = ?
+	fundInfo = scrapy.Field()
 
 
