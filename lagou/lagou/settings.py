@@ -20,7 +20,8 @@ NEWSPIDER_MODULE = 'lagou.spiders'
 
 # Obey robots.txt rules
 ROBOTSTXT_OBEY = True
-
+FEED_URI = 'file:///d:/scraped_data/%(time)s.csv'
+FEED_FORMAT = 'csv'
 # Configure maximum concurrent requests performed by Scrapy (default: 16)
 #CONCURRENT_REQUESTS = 32
 

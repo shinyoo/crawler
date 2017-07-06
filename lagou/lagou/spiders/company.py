@@ -6,7 +6,12 @@ from lagou.items import CompanyItem
 class CompanySpider(scrapy.Spider):
     name = "company"
     allowed_domains = ["lagou.com"]
-    start_urls = ['https://www.lagou.com/gongsi/86068.html']
+    uri_template = 'https://www.lagou.com/gongsi/'
+    company_id = 1
+    # start_urls = ['https://www.lagou.com/gongsi/1000.html']
+
+    def start_requests():
+    	return [scrapy.Request(uri_template + company_id + '.html')]
 
     def parse(self, response):
 		l = ItemLoader(item=CompnayItem(), response=response)
@@ -41,4 +46,7 @@ class CompanySpider(scrapy.Spider):
 		l.add_css('fund_total', '')
 		l.add_css('evaluation', '')
 
-		return l.load_item()    	
+		yield l.load_item()    	
+
+		yield scrapy.Request(uri_template + (++company_id) + '.html')
+
