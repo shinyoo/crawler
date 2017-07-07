@@ -6,10 +6,15 @@
 # See: http://doc.scrapy.org/en/latest/topics/item-pipeline.html
 import csv
 
+
 class LagouPipeline(object):
 
     delimiter = "\t"
     newline = "\n"
+
+    def __init__(self):
+        super(self.__class__)
+        self.file = None
 
     def open_spider(self, spider):
         self.file = open('d:/scraped_data/target.csv', 'ab')
